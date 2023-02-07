@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Gestion Scolarite</a>
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <!-- Dropdown -->
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" type="button"  id="navbardrop" data-toggle="dropdown">
+          Apprenant
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu">
+          <a ngbDropdownItem class="dropdown-item" href="#">Ajouter</a>
+          <a ngbDropdownItem class="dropdown-item" href="#">Lister</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li ngbDropdown class="nav-item dropdown">
+        <span class="navbar-text">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle"  type="button" id="navbardrop" data-toggle="dropdown">
+          [username]
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu">
+          <a ngbDropdownItem class="dropdown-item" href="#">login</a>
+          <a ngbDropdownItem class="dropdown-item" href="#">logout</a>
+          <a ngbDropdownItem class="dropdown-item" href="#">Profile</a>
+        </div>
+        </span>
+      </li>
+    </ul>
+    
+  </nav>

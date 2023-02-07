@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+
+import { Component, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'firstProject';
+  public modalRef!: BsModalRef;
+
+  constructor(private modalService: BsModalService) {}
+
+  openModal(modalTemplate: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(modalTemplate,
+      {
+        class: 'modal-dialogue-centered modal-md',
+        backdrop: 'static',
+        keyboard: true
+      }
+    );
+  }
 }
