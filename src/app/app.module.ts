@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ApprenantComponent } from './apprenant/apprenant.component';
 import { ModalCompComponent } from './modal-comp/modal-comp.component';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { HttpClientModule } from '@angular/common/http';
+import { FormGroup, FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     NgbModule,
     ModalModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule     
     
   ],
   providers: [BsModalService],

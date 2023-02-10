@@ -5,15 +5,17 @@
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-6">
-						<h2>Manage <b>Employees</b></h2>
+						<h2>Manage <b>Apprenant</b></h2>
 					</div>
-                   <!--  <ng-template #modalTemplate>
+					<!--  <ng-template #modalTemplate>
                         <app-modal-comp [dataFromParent]="modalRef"></app-modal-comp>
                       </ng-template> -->
 					<div class="col-sm-6">
-                        <button (click)="openModal(modalTemplate2)">Open Modal</button>
-						<button (click)="openModal(modalTemplate)"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></button>
-						<button (click)="openModal(modalTemplate3)" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></button>						
+
+						<button (click)="openModal(modalTemplate)" class="btn btn-success" data-toggle="modal"><i
+								class="material-icons">&#xE147;</i> <span>Ajouter Apprenant</span></button>
+						<!-- <button (click)="openModal(modalTemplate3)" class="btn btn-danger" data-toggle="modal"><i
+								class="material-icons">&#xE15C;</i> <span>Delete</span></button> -->
 					</div>
 				</div>
 			</div>
@@ -26,94 +28,35 @@
 								<label for="selectAll"></label>
 							</span>
 						</th>
-						<th>Name</th>
+						<th>Code Apprenant</th>
+						<th>Nom </th>
+						<th>Prénom </th>
 						<th>Email</th>
-						<th>Address</th>
-						<th>Phone</th>
+						<th>Telehone</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr *ngFor="let apprenant of apprenants">
 						<td>
 							<span class="custom-checkbox">
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-						<td>Thomas Hardy</td>
-						<td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-						<td>(171) 555-2222</td>
+						<td>{{apprenant.codeApprenant}}</td>
+						<td>{{apprenant.nomApprenant}}</td>
+						<td>{{apprenant.prenomApprenant}}</td>
+						<td>{{apprenant.emailApprenant}}</td>
+						<td>{{apprenant.telApprenant}}</td>
 						<td>
-							<a  type="button" (click)="openModal(modalTemplate2)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a type="button" (click)="openModal(modalTemplate3)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a type="button" (click)="openDetails(contentDetails, apprenant)" class="edit" data-toggle="modal"><i
+									class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a type="button" (click)="openDelete(contentDelete, apprenant)" class="delete" data-toggle="modal"><i
+									class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
-						</td>
-						<td>Dominique Perrier</td>
-						<td>dominiqueperrier@mail.com</td>
-						<td>Obere Str. 57, Berlin, Germany</td>
-						<td>(313) 555-5735</td>
-						<td>
-							<a type="button" (click)="openModal(modalTemplate2)"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a type="button" (click)="openModal(modalTemplate3)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3" name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
-						</td>
-						<td>Maria Anders</td>
-						<td>mariaanders@mail.com</td>
-						<td>25, rue Lauriston, Paris, France</td>
-						<td>(503) 555-9931</td>
-						<td>
-							<a type="button" (click)="openModal(modalTemplate2)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a type="button" (click)="openModal(modalTemplate3)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox4" name="options[]" value="1">
-								<label for="checkbox4"></label>
-							</span>
-						</td>
-						<td>Fran Wilson</td>
-						<td>franwilson@mail.com</td>
-						<td>C/ Araquil, 67, Madrid, Spain</td>
-						<td>(204) 619-5731</td>
-						<td>
-							<a type="button" (click)="openModal(modalTemplate2)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a type="button" (click)="openModal(modalTemplate3)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-						</td>
-					</tr>					
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox5" name="options[]" value="1">
-								<label for="checkbox5"></label>
-							</span>
-						</td>
-						<td>Martin Blank</td>
-						<td>martinblank@mail.com</td>
-						<td>Via Monte Bianco 34, Turin, Italy</td>
-						<td>(480) 631-2097</td>
-						<td>
-							<a type="button" (click)="openModal(modalTemplate2)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a type="button" (click)="openModal(modalTemplate3)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-						</td>
-					</tr> 
+
 				</tbody>
 			</table>
 			<div class="clearfix">
@@ -129,103 +72,187 @@
 				</ul>
 			</div>
 		</div>
-	</div>        
+	</div>
 </div>
-<!-- Edit Modal HTML -->
+<!-- Ajout Modal HTML -->
 <ng-template #modalTemplate>
-<div  >
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-					<h4 class="modal-title">Add Employee</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+	<div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+					<div class="modal-header">
+						<h4 class="modal-title">Add Employee</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+							(click)="modalRef.hide()">&times;</button>
 					</div>
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" required>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Code Apprenant</label>
+							<input type="text" name="codeApprenant" class="form-control" required ngModel>
+						</div>
+						<div class="form-group">
+							<label>Nom</label>
+							<input type="text" name="nomApprenant" class="form-control" required ngModel>
+						</div>
+						<div class="form-group">
+							<label>Prenom</label>
+							<input type="text" name="prenomApprenant" class="form-control" required ngModel>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" name="emailApprenant" class="form-control" required ngModel>
+						</div>
+						<div class="form-group">
+							<label>Telehone</label>
+							<input type="text" name="telApprenant" class="form-control" required ngModel>
+						</div>
+						<div class="form-group">
+							<label>Sexe</label><br>
+							<div class="form-check">
+								<input type="radio" name="sexeApprenant" class="form-check-input" value="homme"
+									required ngModel>
+								<label for="true" class="form-check-label">Homme</label>
+							</div>
+							<div class="form-check">
+								<input type="radio" name="sexeApprenant" class="form-check-input" value="femme"
+									required ngModel>
+								<label for="false" class="form-check-label">Femme</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Date de naissance</label>
+							<input type="date" name="dateNaissanceApprenant" class="form-control" required ngModel>
+						</div>
+						<div class="form-group">
+							<label>Adresse</label>
+							<input type="text" name="adresseApprenant" class="form-control" required ngModel>
+						</div>
+						<div class="form-group">
+							<label>Archive</label><br>
+							<div class="form-check">
+								<input type="radio" name="archiveApprenant" class="form-check-input" value="true"
+									required ngModel>
+								<label for="true" class="form-check-label">True</label>
+							</div>
+							<div class="form-check">
+								<input type="radio" name="archiveApprenant" class="form-check-input" value="false"
+									required ngModel>
+								<label for="false" class="form-check-label">False</label>
+							</div>
+						</div>
+
+
 					</div>
-					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" value="Cancel" (click)="modalRef.hide()">
+						<input type="submit" class="btn btn-success" data-dismiss="modal" value="Add">
 					</div>
-					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-success" value="Add">
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </ng-template>
-<!-- Edit Modal HTML -->
-<ng-template #modalTemplate2>
-<div>
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-					<h4 class="modal-title">Edit Employee</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+<!-- detail Modal HTML -->
+<ng-template #contentDetails>
+	<div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form [formGroup]="editForm">
+					<div class="modal-header">
+						<h4 class="modal-title">Edit Apprenant</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+							(click)="modalRef.hide()">&times;</button>
 					</div>
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" required>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Code Apprenant</label>
+							<input type="text" formControlName="codeApprenant" class="form-control" required >
+						</div>
+						<div class="form-group">
+							<label>Nom</label>
+							<input type="text" formControlName="nomApprenant" class="form-control" required >
+						</div>
+						<div class="form-group">
+							<label>Prenom</label>
+							<input type="text" formControlName="prenomApprenant" class="form-control" required >
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" formControlName="emailApprenant" class="form-control" required >
+						</div>
+						<div class="form-group">
+							<label>Telehone</label>
+							<input type="text" formControlName="telApprenant" class="form-control" required >
+						</div>
+						<div class="form-group">
+							<label>Sexe</label><br>
+							<div class="form-check">
+								<input type="radio" formControlName="sexeApprenant" class="form-check-input" value="homme"
+									required >
+								<label for="true" class="form-check-label">Homme</label>
+							</div>
+							<div class="form-check">
+								<input type="radio" formControlName="sexeApprenant" class="form-check-input" value="femme"
+									required >
+								<label for="false" class="form-check-label">Femme</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Date de naissance</label>
+							<input type="date" formControlName="dateNaissanceApprenant" class="form-control" required >
+						</div>
+						<div class="form-group">
+							<label>Adresse</label>
+							<input type="text" formControlName="adresseApprenant" class="form-control" required >
+						</div>
+						<div class="form-group">
+							<label>Archive</label><br>
+							<div class="form-check">
+								<input type="radio" formControlName="archiveApprenant" class="form-check-input" value="true"
+									required >
+								<label for="true" class="form-check-label">True</label>
+							</div>
+							<div class="form-check">
+								<input type="radio" formControlName="archiveApprenant" class="form-check-input" value="false"
+									required >
+								<label for="false" class="form-check-label">False</label>
+							</div>
+						</div>
+
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="modalRef.hide()"
+							value="Cancel">
+						<input type="submit" class="btn btn-info" value="Save" (click)="onSave()">
 					</div>
-					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-info" value="Save">
-				</div>
-			</form>
+				</div>	
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </ng-template>
 <!-- Delete Modal HTML -->
 
-<ng-template #modalTemplate3>
-<div >
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-					<h4 class="modal-title">Delete Employee</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<p>Are you sure you want to delete these Records?</p>
-					<p class="text-warning"><small>This action cannot be undone.</small></p>
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-danger" value="Delete">
-				</div>
-			</form>
+<ng-template #contentDelete>
+	<div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+						<h4 class="modal-title">Delete Apprenant</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+							(click)="modalRef.hide()">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure you want to delete these Records?</p>
+						<p class="text-warning"><small>This action cannot be undone.</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"
+							(click)="modalRef.hide()">
+						<input type="submit" class="btn btn-danger" value="Delete" (click)="onDelete()">
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </ng-template>

@@ -9,7 +9,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class AppComponent {
   title = 'firstProject';
-  public modalRef!: BsModalRef;
+ /*  public modalRef!: BsModalRef;
 
   constructor(private modalService: BsModalService) {}
 
@@ -21,5 +21,7 @@ export class AppComponent {
         keyboard: true
       }
     );
-  }
+  } */
+
+  
 }
