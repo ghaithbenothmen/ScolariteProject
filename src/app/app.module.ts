@@ -11,6 +11,7 @@ import { ModalCompComponent } from './modal-comp/modal-comp.component';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule }   from '@angular/forms';
     LoginComponent,
     NavbarComponent,
     ApprenantComponent,
-    ModalCompComponent
+    ModalCompComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
